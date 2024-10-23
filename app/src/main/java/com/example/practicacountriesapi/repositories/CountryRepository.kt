@@ -10,4 +10,9 @@ class CountryRepository {
         val result = api.getAllCountries()
         return  result
     }
+
+    suspend fun addCountry(country: Country): Country {
+        val response = api.addCountry(country)
+        return  response
+    }
 }

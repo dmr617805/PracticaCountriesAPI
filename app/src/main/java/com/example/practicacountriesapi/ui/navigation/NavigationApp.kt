@@ -48,7 +48,7 @@ fun NavigationApp(countryViewModel: CountryViewModel = viewModel()) {
             }
 
             composable(Screen.Detail.route) {
-                DetailScreen(navController)
+                DetailScreen(navController, countryViewModel)
             }
         }
     }
