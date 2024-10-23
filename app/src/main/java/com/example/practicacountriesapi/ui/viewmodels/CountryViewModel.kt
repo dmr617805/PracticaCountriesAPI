@@ -38,12 +38,13 @@ class CountryViewModel(
         viewModelScope.launch {
             try {
                 val newCountry = repository.addCountry(country)
+                fetchCountries()
 
-                val currentState = _uiState.value
-                if (currentState is CountryUiState.Success) {
-                    val updatedCountries = currentState.countries + newCountry
-                    _uiState.value = CountryUiState.Success(updatedCountries)
-                }
+//                val currentState = _uiState.value
+//                if (currentState is CountryUiState.Success) {
+//                    val updatedCountries = currentState.countries + newCountry
+//                    _uiState.value = CountryUiState.Success(updatedCountries)
+//                }
             } catch (e: Exception) {
                 _uiState.value = CountryUiState.Error(e.localizedMessage ?: "Failed to add country")
             }
